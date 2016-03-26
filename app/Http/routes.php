@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/fruit/deleted', ['uses' => 'FruitController@deleted', 'as' => 'fruit.deleted']);
+Route::get('/store/deleted', ['uses' => 'StoreController@deleted', 'as' => 'store.deleted']);
 
 Route::resource('fruit', 'FruitController');
+Route::resource('store', 'StoreController');

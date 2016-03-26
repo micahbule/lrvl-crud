@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Fruit;
+use App\Store;
 use App\Http\Requests;
 
-class FruitController extends Controller
+class StoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class FruitController extends Controller
      */
     public function index()
     {
-        $fruits = Fruit::paginate(15);
+        $stores = Store::paginate(15);
 
-        return view('fruits', ['fruits' => $fruits]);
+        return view('stores', ['stores' => $stores]);
     }
 
     /**
@@ -28,7 +28,7 @@ class FruitController extends Controller
      */
     public function create()
     {
-        return view('fruit');
+        return view('store');
     }
 
     /**
@@ -41,9 +41,9 @@ class FruitController extends Controller
     {
         $data = $request->except('_token');
 
-        Fruit::create($data);
+        Store::create($data);
 
-        return redirect('fruit')->with('success', 'Successfully added fruit!');
+        return redirect('store')->with('success', 'Successfully added store!');
     }
 
     /**
@@ -54,9 +54,9 @@ class FruitController extends Controller
      */
     public function show($id)
     {
-        $fruit = Fruit::find($id);
+        $store = Store::find($id);
 
-        return view('show_fruit', ['fruit' => $fruit]);
+        return view('show_store', ['store' => $store]);
     }
 
     /**
@@ -67,9 +67,9 @@ class FruitController extends Controller
      */
     public function edit($id)
     {
-        $fruit = Fruit::find($id);
+        $store = Store::find($id);
 
-        return view('fruit', ['fruit' => $fruit]);
+        return view('store', ['store' => $store]);
     }
 
     /**
@@ -82,19 +82,19 @@ class FruitController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->has('restore')) {
-            Fruit::onlyTrashed()->where('id', $id)->restore();
+            Store::onlyTrashed()->where('id', $id)->restore();
 
-            return redirect('fruit')->with('success', 'Successfully restored fruit!');
+            return redirect('store')->with('success', 'Successfully restored store!');
         }
 
         $newData = $request->except('_token');
 
-        $fruit = Fruit::find($id);
-        $fruit->update($newData);
+        $store = Store::find($id);
+        $store->update($newData);
 
         return redirect()
-            ->route('fruit.edit', ['id' => $fruit->id])
-            ->with('success', 'Successfully updated fruit!');
+            ->route('store.edit', ['id' => $store->id])
+            ->with('success', 'Successfully updated store!');
     }
 
     /**
@@ -105,15 +105,15 @@ class FruitController extends Controller
      */
     public function destroy($id)
     {
-        Fruit::destroy($id);
+        Store::destroy($id);
 
-        return redirect('fruit')->with('success', 'Successfully deleted fruit!');
+        return redirect('store')->with('success', 'Successfully deleted store!');
     }
 
     public function deleted()
     {
-        $deletedFruits = Fruit::onlyTrashed()->paginate(15);
+        $deletedStores = Store::onlyTrashed()->paginate(15);
 
-        return view('fruits', ['fruits' => $deletedFruits]);
+        return view('stores', ['stores' => $deletedStores]);
     }
 }
