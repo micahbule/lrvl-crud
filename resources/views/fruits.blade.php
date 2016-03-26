@@ -25,7 +25,7 @@
       <tbody>
         @foreach($fruits as $fruit)
           <tr>
-            <td>{{ $fruit->name }}</td>
+            <td><a href="/fruit/{{ $fruit->id }}">{{ $fruit->name }}</a></td>
             <td>P {{ $fruit->price }}</td>
             <td>
               <div class="btn-group" role="group">

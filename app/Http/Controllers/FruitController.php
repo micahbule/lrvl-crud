@@ -55,7 +55,9 @@ class FruitController extends Controller
      */
     public function show($id)
     {
-        //
+        $fruit = Fruit::find($id);
+
+        return view('show_fruit', ['fruit' => $fruit]);
     }
 
     /**

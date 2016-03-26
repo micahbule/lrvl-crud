@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary pull-right">Add</button>
+        <button type="submit" class="btn btn-primary pull-right">{{ isset($fruit) ? 'Save' : 'Add' }}</button>
       </form>
     </div>
   </div>
