@@ -13,8 +13,7 @@ class FruitsTableSeeder extends Seeder
     {
         DB::table('fruits')->insert([
         	'name' => 'Banana',
-        	'description' => 'Yellow curved fruit.',
-        	'price' => 12.50
+        	'description' => 'Yellow curved fruit.'
         ]);
     }
 }

@@ -5,6 +5,5 @@
     <h1>{{ $fruit->name }}</h1>
   </div>
 
-  <h3>P {{ $fruit->price }}</h3>
   <p>{{ $fruit->description }}</p>
 @stop

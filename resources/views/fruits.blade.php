@@ -18,7 +18,6 @@
       <thead>
         <tr>
           <td>Name</td>
-          <td>Price</td>
           <td class="col-md-3">Actions</td>
         </tr>
       </thead>
@@ -26,7 +25,6 @@
         @foreach($fruits as $fruit)
           <tr>
             <td><a href="/fruit/{{ $fruit->id }}">{{ $fruit->name }}</a></td>
-            <td>P {{ $fruit->price }}</td>
             <td>
               <div class="btn-group" role="group">
                 <a href="/fruit/{{ $fruit->id }}/edit" class="btn btn-default">Edit</a>

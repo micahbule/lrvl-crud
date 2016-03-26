@@ -15,8 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/fruit/deleted', ['uses' => 'FruitController@deleted', 'as' => 'fruit.deleted']);
-Route::get('/store/deleted', ['uses' => 'StoreController@deleted', 'as' => 'store.deleted']);
+Route::get('inventory', 'InventoryController@index');
+Route::post('inventory', 'InventoryController@save');
+
+Route::get('fruit/deleted', ['uses' => 'FruitController@deleted', 'as' => 'fruit.deleted']);
+Route::get('store/deleted', ['uses' => 'StoreController@deleted', 'as' => 'store.deleted']);
 
 Route::resource('fruit', 'FruitController');
 Route::resource('store', 'StoreController');
+
+Route::group(['prefix' => 'api'], function () {
+	Route::get('fruit', 'FruitController@apiIndex');
+	
+	Route::get('store', 'StoreController@apiIndex');
+	Route::get('store/{id}/details', 'StoreController@apiGetDetails');
+});

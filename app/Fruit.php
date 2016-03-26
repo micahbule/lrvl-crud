@@ -9,7 +9,12 @@ class Fruit extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'price'];
+    protected $fillable = ['name', 'description'];
 
     protected $dates = ['deleted_at'];
+
+    public function stores()
+    {
+    	return $this->belongsToMany('App\Store')->withPivot('price');
+    }
 }

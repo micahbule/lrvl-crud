@@ -26,15 +26,6 @@
             <input type="text" class="form-control" name="description" id="description" placeholder="A yellow curved fruit." value="{{ $fruit->description or '' }}">
           </div>
         </div>
-        <div class="form-group">
-          <label for="price" class="col-sm-2 control-label">Price</label>
-          <div class="col-sm-10">
-            <div class="input-group">
-              <span class="input-group-addon">P</span>
-              <input type="text" class="form-control" name="price" id="price" placeholder="12.50" value="{{ $fruit->price or '' }}">
-            </div>
-          </div>
-        </div>
         <button type="submit" class="btn btn-primary pull-right">{{ isset($fruit) ? 'Save' : 'Add' }}</button>
       </form>
     </div>

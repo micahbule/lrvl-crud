@@ -116,4 +116,8 @@ class FruitController extends Controller
 
         return view('fruits', ['fruits' => $deletedFruits]);
     }
+
+    public function apiIndex() {
+        return response()->json(Fruit::all());
+    }
 }

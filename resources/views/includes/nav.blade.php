@@ -18,6 +18,7 @@
       <ul class="nav navbar-nav">
         <li class="{{ $request->is('fruit*') ? 'active' : '' }}"><a href="/fruit">Fruits <span class="sr-only">(current)</span></a></li>
         <li class="{{ $request->is('store*') ? 'active' : '' }}"><a href="/store">Stores</a></li>
+        <li class="{{ $request->is('inventory*') ? 'active' : '' }}"><a href="/inventory">Inventory</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -12,4 +12,9 @@ class Store extends Model
     protected $fillable = ['name', 'address', 'contact'];
 
     protected $dates = ['deleted_at'];
+
+    public function fruits()
+    {
+    	return $this->belongsToMany('App\Fruit')->withPivot('price');
+    }
 }

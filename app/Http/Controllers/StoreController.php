@@ -116,4 +116,16 @@ class StoreController extends Controller
 
         return view('stores', ['stores' => $deletedStores]);
     }
+
+    public function apiIndex()
+    {
+        return response()->json(Store::all());
+    }
+
+    public function apiGetDetails($id)
+    {
+        $storeWithDetails = Store::with('fruits')->where('id', $id)->first();
+
+        return response()->json($storeWithDetails);
+    }
 }
